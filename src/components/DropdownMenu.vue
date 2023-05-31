@@ -28,18 +28,18 @@
       <button :class="{ active: VillianPosition === 'SB' }" @click="VillianPosition = 'SB'">SB</button>
       <button :class="{ active: VillianPosition === 'BB' }" @click="VillianPosition = 'BB'">BB</button>
       <button :class="{ active: VillianPosition === 'BU' }" @click="VillianPosition = 'BU'">BU</button>
-      <button :class="{ active: VillianPosition === 'CO' }" @click="VillianPosition = 'CO'">CO</button>
-      <button :class="{ active: VillianPosition === 'HJ' }" @click="VillianPosition = 'HJ'">HJ</button>
-      <button :class="{ active: VillianPosition === 'LJ' }" @click="VillianPosition = 'LJ'">LJ</button>
-      <button :class="{ active: VillianPosition === 'UTG+2' }" @click="VillianPosition = 'UTG+2'">UTG+2</button>
-      <button :class="{ active: VillianPosition === 'UTG+1' }" @click="VillianPosition = 'UTG+1'">UTG+1</button>
-      <button :class="{ active: VillianPosition === 'UTG' }" @click="VillianPosition = 'UTG'">UTG</button>
+      <button :class="{ active: VillianPosition === 'CO' }" @click="VillianPosition = 'CO'" :disabled="disableCOButton">CO</button>
+      <button :class="{ active: VillianPosition === 'HJ' }" @click="VillianPosition = 'HJ'" :disabled="disableHJButton">HJ</button>
+      <button :class="{ active: VillianPosition === 'LJ' }" @click="VillianPosition = 'LJ'" :disabled="disableLJButton">LJ</button>
+      <button :class="{ active: VillianPosition === 'UTG+2' }" @click="VillianPosition = 'UTG+2'" :disabled="disableUTG2Button">UTG+2</button>
+      <button :class="{ active: VillianPosition === 'UTG+1' }" @click="VillianPosition = 'UTG+1'" >UTG+1</button>
+      <button :class="{ active: VillianPosition === 'UTG' }" @click="VillianPosition = 'UTG'" :disabled="disableUTGButton">UTG</button>
     </div>
 
     <div class="image-container">
-      <img :src="getPictureUrl" alt="Picture">
-      <img :src="getPictureUrlxdd" alt="Picture">
-      <img :src="getPictureUrlxd" alt="Picture">
+      <img :src="getPictureUrl">
+      <img :src="getPictureUrlxdd">
+      <img :src="getPictureUrlxd">
     </div>
   </div>
 </template>
@@ -100,6 +100,29 @@ export default {
       const pictureUrlxdd = `${this.Type}_${this.StackDepth}_${this.HeroPosition}_${this.VillianPosition}_3bb.png`;
       return pictureUrlxdd;
     },
+    disableCOButton() {
+      return this.Type === 'RFI';
+      
+    },
+    disableLJButton() {
+      return this.Type === 'RFI';
+      
+    },
+    disableUTG2Button() {
+      return this.Type === 'RFI';
+      
+    },
+    disableUTGButton() {
+      return this.Type === 'RFI';
+      
+    },
+    disableHJButton() {
+      return this.Type === 'Defend';
+      
+    },
+   
+   
   },
 };
 </script>
+

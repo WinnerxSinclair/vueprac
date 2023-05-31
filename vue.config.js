@@ -3,5 +3,5 @@ module.exports = defineConfig({
   publicPath: process.env.NODE_ENV === 'production'
     ? '/vueprac/'
     : '/',
-  transpileDependencies: true
+    outputDir: 'docs',
 })
